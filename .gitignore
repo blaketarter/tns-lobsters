@@ -1,0 +1,34 @@
+# Ignore jetbrains ide configs
+.idea
+*.iml
+.idea_modules/
+
+# Sublime configs
+*.sublime-workspace
+sftp-config.json
+
+# Node stuff
+node_modules
+
+# Bower Stuff
+bower_components
+
+# Ignore logs
+logs
+*.log
+
+# Sass Stuff
+.sass-cache
+*.css.map
+
+# Mac folder config
+.DS_Store
+.Spotlight-V100
+.Trashes
+._*
+
+# No one wants tmp stuff
+tmp
+
+# NativeScript ignores
+platforms

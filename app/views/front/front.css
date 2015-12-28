@@ -1,0 +1,52 @@
+ActionBar {
+  background-color: #AC130D;
+  color: white;
+}
+
+.list-layout {
+  width: 100%;
+}
+
+.post-inner {
+  padding: 7 15;
+}
+
+.post-title {
+  font-size: 18;
+  margin-bottom: 7;
+}
+
+.post-info, .tag {
+  font-size: 12;
+  color: #666666;
+}
+
+.tag {
+  color: white;
+  background-color: #BDBDBD;
+  border-radius: 10;
+  border: 5 solid #666666;
+  padding: 5 10;
+  margin-right: 7;
+  margin-bottom: 7;
+}
+
+.post-url {
+  font-size: 14;
+  margin-bottom: 7;
+  color: #f44336;
+}
+
+.post-domain {
+  font-size: 14;
+  margin-bottom: 3;
+  color: #666666;
+}
+
+.post-author, .post-created, .post-score {
+  padding-right: 7;
+}
+
+.post-score {
+  color: #AC130D;
+}
