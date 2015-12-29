@@ -74,5 +74,6 @@ function formatDate(date) {
 }
 
 function openUrl(event) {
-  console.log(event);
+  console.log(event.object.text);
+  utilityModule.openUrl(event.object.text);
 }
