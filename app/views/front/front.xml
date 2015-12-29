@@ -5,23 +5,23 @@
   <StackLayout id="stack-container">
     <ListView id="post-list" items="{{ posts }}">
       <ListView.itemTemplate>
-        <StackLayout className="post-inner">
-          <Label className="post-title" text="{{ title }}" textWrap="true" />
-          <Label className="post-url" text="{{ url }}" tap="openUrl" />
-          <Repeater className="post-tags-container" items="{{ tags }}">
+        <StackLayout class="post-inner">
+          <Label class="post-title" text="{{ title }}" textWrap="true" />
+          <Label class="post-url" text="{{ url }}" tap="openUrl" />
+          <Repeater class="post-tags-container" items="{{ tags }}">
             <Repeater.itemsLayout>
               <StackLayout orientation="horizontal" />
             </Repeater.itemsLayout>
             <Repeater.itemTemplate>
-              <Label className="tag" text="{{ $value }}" />
+              <Label class="tag" text="{{ $value }}" />
             </Repeater.itemTemplate>
           </Repeater>
-          <StackLayout className="post-info" orientation="horizontal">
-            <Label className="post-score" text="{{ score }}" />
-            <Label className="post-author" text="{{ ('via ' + submitter_user.username) }}" />
-            <Label className="post-created" text="{{ created }}" />
+          <StackLayout class="post-info" orientation="horizontal">
+            <Label class="post-score" text="{{ score }}" />
+            <Label class="post-author" text="{{ ('via ' + submitter_user.username) }}" />
+            <Label class="post-created" text="{{ created }}" />
           </StackLayout>
-          <Label className="post-comments" text="{{ (comment_count + (comment_count === 1 ? ' comment' : ' comments')) }}"/>
+          <Label class="post-comments" text="{{ (comment_count + (comment_count === 1 ? ' comment' : ' comments')) }}"/>
         </StackLayout>
       </ListView.itemTemplate>
     </ListView>
