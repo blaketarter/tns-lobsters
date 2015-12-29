@@ -1,5 +1,6 @@
 "use strict";
 
+var app = require('application');
 var http = require('fetch');
 var dialog = require("ui/dialogs");
 var observable = require("data/observable");
@@ -18,6 +19,7 @@ var frameModule = require("ui/frame");
 
 var enums = require("ui/enums");
 var utilityModule = require("utils/utils");
+var color = require('color');
 var orientation = enums.Orientation;
 
 var frontPage = 'https://lobste.rs/hottest.json';
@@ -49,7 +51,10 @@ exports.loaded = function(args) {
       });
 
       if (page.android) {
-        
+        let window = app.android.currentContext.getWindow();
+        window.setStatusBarColor(
+          new color.Color('#890f0a').android
+        );
       }
 
       if (page.ios) {
