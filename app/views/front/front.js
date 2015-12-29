@@ -49,7 +49,7 @@ exports.loaded = function(args) {
 
         buildPostData(data);
       });
-
+      
       if (page.android) {
         let window = app.android.currentContext.getWindow();
         window.setStatusBarColor(
