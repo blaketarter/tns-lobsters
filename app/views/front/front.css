@@ -12,6 +12,7 @@ ActionBar {
 }
 
 .post-title {
+  color: #000000;
   font-size: 18;
   margin-bottom: 7;
 }
@@ -22,7 +23,7 @@ ActionBar {
 }
 
 .tag {
-  color: white;
+  color: #ffffff;
   background-color: #BDBDBD;
   border-radius: 10;
   border: 5 solid #666666;
