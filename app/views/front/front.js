@@ -14,6 +14,7 @@ var stackLayoutModule = require("ui/layouts/stack-layout");
 var imageModule = require("ui/image");
 // var borderModule = require("ui/border");
 var buttonModule = require("ui/button");
+var frameModule = require("ui/frame");
 
 var enums = require("ui/enums");
 var utilityModule = require("utils/utils");
@@ -46,7 +47,21 @@ exports.loaded = function(args) {
 
         buildPostData(data);
       });
+
+      if (page.android) {
+        
+      }
+
+      if (page.ios) {
+        let controller = frameModule.topmost().ios.controller;
+        let navigationBar = controller.navigationBar;
+
+        navigationBar.barStyle = 1;
+      }
 };
+
+exports.openUrl = openUrl;
+
 function buildPostData(raw) {
   raw.map(function(rawPost) {
     rawPost.created = formatDate(rawPost.created_at);
@@ -56,4 +71,8 @@ function buildPostData(raw) {
 
 function formatDate(date) {
   return moment(date).fromNow();
+}
+
+function openUrl(event) {
+  console.log(event);
 }

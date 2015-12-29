@@ -17,9 +17,13 @@ ActionBar {
   margin-bottom: 7;
 }
 
-.post-info, .tag {
+.post-info, .tag, .post-comments {
   font-size: 12;
   color: #666666;
+}
+
+.post-comments {
+  margin-top: 7;
 }
 
 .tag {
@@ -34,8 +38,10 @@ ActionBar {
 
 .post-url {
   font-size: 14;
+  /* margin-top: 7; */
+  /* border-top: 1px solid #666666; */
   margin-bottom: 7;
-  color: #f44336;
+  color: #ac120d;
 }
 
 .post-domain {

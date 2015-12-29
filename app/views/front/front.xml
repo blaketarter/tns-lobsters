@@ -7,6 +7,7 @@
       <ListView.itemTemplate>
         <StackLayout className="post-inner">
           <Label className="post-title" text="{{ title }}" textWrap="true" />
+          <Label className="post-url" text="{{ url }}" tap="openUrl" />
           <Repeater className="post-tags-container" items="{{ tags }}">
             <Repeater.itemsLayout>
               <StackLayout orientation="horizontal" />
@@ -17,9 +18,10 @@
           </Repeater>
           <StackLayout className="post-info" orientation="horizontal">
             <Label className="post-score" text="{{ score }}" />
-            <Label className="post-author" text="{{ submitter_user.username }}" />
+            <Label className="post-author" text="{{ ('via ' + submitter_user.username) }}" />
             <Label className="post-created" text="{{ created }}" />
           </StackLayout>
+          <Label className="post-comments" text="{{ (comment_count + (comment_count === 1 ? ' comment' : ' comments')) }}"/>
         </StackLayout>
       </ListView.itemTemplate>
     </ListView>
