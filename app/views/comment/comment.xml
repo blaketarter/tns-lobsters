@@ -20,6 +20,7 @@
         <Label class="post-author" text="{{ ('via ' + post.submitter_user.username) }}" />
         <Label class="post-created" text="{{ post.created }}" />
       </StackLayout>
+      <Label class="post-description" text="{{ post.description }}" textWrap="true" />
       <Label class="post-comments" text="{{ (post.comment_count + (post.comment_count === 1 ? ' comment' : ' comments')) }}"/>
     </StackLayout>
     <Repeater items="{{ comments }}" id="comment-list" dock="bottom">

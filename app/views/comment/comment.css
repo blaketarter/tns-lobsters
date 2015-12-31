@@ -1,3 +1,9 @@
+.post-description {
+  color: #000000;
+  font-size: 12;
+  margin-top: 7;
+}
+
 .comment-inner {
   padding: 7 15;
 }

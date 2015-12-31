@@ -31,16 +31,15 @@ var loadMore;
 var loading = false;
 
 var pageData = new observable.Observable({
-    comments: new observableArray.ObservableArray([
-    ]),
+    comments: new observableArray.ObservableArray([]),
     post: new observable.Observable()
 });
 
 exports.pageNavigatedTo = function(args) {
   var page = args.object;
   page.bindingContext = pageData;
-
-  pageData.post = page.navigationContext.post;
+  
+  pageData.post = formatPost(page.navigationContext.post);
 
   getComments(pageData.post.comments_url);
 };
@@ -66,8 +65,17 @@ function formatDate(date) {
   return moment(date).fromNow();
 }
 
+function formatPost(post) {
+  var returnVal = post;
+
+  if (post && post.description && post.description.length) {
+    returnVal.description = striptags(returnVal.description);
+  }
+
+  return returnVal;
+}
+
 function openUrl(event) {
-  console.log(event.object.text);
   utilityModule.openUrl(event.object.text);
 }
 
