@@ -27,7 +27,6 @@
   },
   "dependencies": {
     "moment": "^2.10.6",
-    "nativescript-telerik-ui": "^0.2.1",
     "striptags": "^2.0.4",
     "tns-core-modules": "1.5"
   }

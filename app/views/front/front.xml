@@ -1,46 +1,29 @@
-<Page loaded="loaded" xmlns:drawer="nativescript-telerik-ui/sidedrawer" xmlns="http://www.nativescript.org/tns.xsd">
+<Page loaded="loaded" xmlns="http://www.nativescript.org/tns.xsd">
   <Page.actionBar>
     <ActionBar title="Lobste.rs" />
   </Page.actionBar>
-  <drawer:RadSideDrawer>
-    <drawer:RadSideDrawer.mainContent>
-      <StackLayout id="stack-container">
-        <ListView id="post-list" items="{{ posts }}" itemTap="listViewItemTap">
-          <ListView.itemTemplate>
-            <StackLayout class="post-inner">
-              <Label class="post-title" text="{{ title }}" textWrap="true" />
-              <Label class="post-url" text="{{ url }}" tap="openUrl" />
-              <Repeater class="post-tags-container" items="{{ tags }}">
-                <Repeater.itemsLayout>
-                  <StackLayout orientation="horizontal" />
-                </Repeater.itemsLayout>
-                <Repeater.itemTemplate>
-                  <Label class="tag" text="{{ $value }}" />
-                </Repeater.itemTemplate>
-              </Repeater>
-              <StackLayout class="post-info" orientation="horizontal">
-                <Label class="post-score" text="{{ score }}" />
-                <Label class="post-author" text="{{ ('via ' + submitter_user.username) }}" />
-                <Label class="post-created" text="{{ created }}" />
-              </StackLayout>
-              <Label class="post-comments" text="{{ (comment_count + (comment_count === 1 ? ' comment' : ' comments')) }}"/>
-            </StackLayout>
-          </ListView.itemTemplate>
-        </ListView>
-      </StackLayout>
-    </drawer:RadSideDrawer.mainContent>
-    <drawer:RadSideDrawer.drawerContent>
-      <StackLayout class="drawerContent">
-        <StackLayout class="headerContent">
-          <Label text="Header"/>
+  <StackLayout id="stack-container">
+    <ListView id="post-list" items="{{ posts }}" itemTap="listViewItemTap">
+      <ListView.itemTemplate>
+        <StackLayout class="post-inner">
+          <Label class="post-title" text="{{ title }}" textWrap="true" />
+          <Label class="post-url" text="{{ url }}" tap="openUrl" />
+          <Repeater class="post-tags-container" items="{{ tags }}">
+            <Repeater.itemsLayout>
+              <StackLayout orientation="horizontal" />
+            </Repeater.itemsLayout>
+            <Repeater.itemTemplate>
+              <Label class="tag" text="{{ $value }}" />
+            </Repeater.itemTemplate>
+          </Repeater>
+          <StackLayout class="post-info" orientation="horizontal">
+            <Label class="post-score" text="{{ score }}" />
+            <Label class="post-author" text="{{ ('via ' + submitter_user.username) }}" />
+            <Label class="post-created" text="{{ created }}" />
+          </StackLayout>
+          <Label class="post-comments" text="{{ (comment_count + (comment_count === 1 ? ' comment' : ' comments')) }}"/>
         </StackLayout>
-        <StackLayout class="drawerMenuContent">
-          <Label text="Item 1"/>
-          <Label text="Item 2"/>
-          <Label text="Item 3"/>
-          <Label text="Item 4"/>
-        </StackLayout>
-      </StackLayout>
-    </drawer:RadSideDrawer.drawerContent>
-  </drawer:RadSideDrawer>
+      </ListView.itemTemplate>
+    </ListView>
+  </StackLayout>
 </Page>

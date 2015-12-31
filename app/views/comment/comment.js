@@ -45,37 +45,6 @@ exports.pageNavigatedTo = function(args) {
   getComments(pageData.post.comments_url);
 };
 
-/*
- * exports.loaded = function(args) {
- *     page = args.object;
- *     page.bindingContext = pageData;
- * 
- *     http.fetch(frontPage)
- *       .then(function(response) {
- *         return response.json();
- *       })
- *       .then(function(data) {
- *         // pageData.posts = new observableArray.ObservableArray(posts);
- * 
- *         // buildPostData(data);
- *       });
- *       
- *       if (page.android) {
- *         let window = app.android.currentContext.getWindow();
- *         window.setStatusBarColor(
- *           new color.Color('#890f0a').android
- *         );
- *       }
- * 
- *       if (page.ios) {
- *         let controller = frameModule.topmost().ios.controller;
- *         let navigationBar = controller.navigationBar;
- * 
- *         navigationBar.barStyle = 1;
- *       }
- * };
- */
-
 exports.openUrl = openUrl;
 
 function buildPostData(raw) {
@@ -103,14 +72,11 @@ function openUrl(event) {
 }
 
 function getComments(commentUrl) {
-  console.log(commentUrl);
-
   http.fetch(commentUrl + '.json')
     .then(function(response) {
       return response.json();
     })
     .then(function(data) {
-      console.log(data.comments);
       buildCommentData(data.comments);
     });
 }
