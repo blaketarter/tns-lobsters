@@ -67,6 +67,8 @@ exports.loaded = function(args) {
 
 exports.openUrl = openUrl;
 
+exports.listViewItemTap = listViewItemTap;
+
 function buildPostData(raw) {
   raw.map(function(rawPost) {
     rawPost.created = formatDate(rawPost.created_at);
@@ -81,4 +83,20 @@ function formatDate(date) {
 function openUrl(event) {
   console.log(event.object.text);
   utilityModule.openUrl(event.object.text);
+}
+
+function listViewItemTap(args) {
+  var index = args.index;
+  
+  var topmost = frameModule.topmost();
+
+  var navigationEntry = {
+    moduleName: 'views/comment/comment',
+    context: {
+      post: pageData.posts.getItem(index)
+    },
+    animated: true
+  };
+
+  topmost.navigate(navigationEntry);
 }

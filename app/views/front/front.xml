@@ -5,7 +5,7 @@
   <drawer:RadSideDrawer>
     <drawer:RadSideDrawer.mainContent>
       <StackLayout id="stack-container">
-        <ListView id="post-list" items="{{ posts }}">
+        <ListView id="post-list" items="{{ posts }}" itemTap="listViewItemTap">
           <ListView.itemTemplate>
             <StackLayout class="post-inner">
               <Label class="post-title" text="{{ title }}" textWrap="true" />

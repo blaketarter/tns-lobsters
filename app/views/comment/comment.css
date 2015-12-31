@@ -1,0 +1,18 @@
+.comment-inner {
+  padding: 7 15;
+}
+
+.comment-info {
+  font-size: 12;
+  color: #666666;
+}
+
+.comment-author, .comment-created, .comment-score {
+  padding-right: 7;
+}
+
+.comment-score {
+  color: #AC130D;
+}
+
+

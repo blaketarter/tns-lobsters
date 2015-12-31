@@ -1,0 +1,63 @@
+ActionBar {
+  background-color: #AC130D;
+  color: white;
+}
+
+.list-layout {
+  width: 100%;
+}
+
+.post-inner {
+  padding: 7 15;
+}
+
+.post-title {
+  color: #000000;
+  font-size: 18;
+  margin-bottom: 7;
+}
+
+.post-info, .post-comments {
+  font-size: 12;
+  color: #666666;
+}
+
+.post-comments {
+  margin-top: 7;
+}
+
+.tag {
+  font-size: 10;
+  /* color: #ffffff; */
+  color: #666666;
+  background-color: #efefef;
+  border-radius: 10;
+  border-color: #b7b7b7;
+  border-width: 1;
+  padding: 3 7;
+  margin-right: 7;
+  margin-bottom: 7;
+}
+
+.post-url {
+  font-size: 14;
+  /* margin-top: 7; */
+  /* border-top: 1px solid #666666; */
+  margin-bottom: 7;
+  color: #ac120d;
+}
+
+.post-domain {
+  font-size: 14;
+  margin-bottom: 3;
+  color: #666666;
+}
+
+.post-author, .post-created, .post-score {
+  padding-right: 7;
+}
+
+.post-score {
+  color: #AC130D;
+}
+
