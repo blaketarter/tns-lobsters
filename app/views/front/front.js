@@ -34,8 +34,20 @@ var loading = false;
 
 var pageData = new observable.Observable({
     hottest: new observableArray.ObservableArray([]),
-    newest: new observableArray.ObservableArray([])
+    newest: new observableArray.ObservableArray([]),
+    currentTab: 'hottest'
 });
+
+exports.selectedIndexChanged = function(args) {
+  switch (args.newIndex) {
+    case 0:
+      pageData.currentTab = 'hottest';
+      break;
+    case 1:
+      pageData.currentTab = 'newest';
+      break;
+  }
+};
 
 exports.loaded = function(args) {
     page = args.object;
@@ -100,13 +112,15 @@ function openUrl(event) {
 
 function listViewItemTap(args) {
   var index = args.index;
+  
+  console.log(args);
 
   var topmost = frameModule.topmost();
 
   var navigationEntry = {
     moduleName: 'views/comment/comment',
     context: {
-      post: pageData.posts.getItem(index)
+      post: pageData[pageData.currentTab].getItem(index)
     },
     animated: true
   };

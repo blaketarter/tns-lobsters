@@ -2,7 +2,7 @@
   <Page.actionBar>
     <ActionBar title="Lobste.rs" />
   </Page.actionBar>
-  <TabView>
+  <TabView selectedIndexChanged="selectedIndexChanged">
     <TabView.items>
       <TabViewItem title="Home">
         <TabViewItem.view>
