@@ -113,8 +113,6 @@ function openUrl(event) {
 function listViewItemTap(args) {
   var index = args.index;
   
-  console.log(args);
-
   var topmost = frameModule.topmost();
 
   var navigationEntry = {
