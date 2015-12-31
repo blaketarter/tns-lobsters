@@ -27,12 +27,14 @@
         <Repeater items="{{ comments }}" id="comment-list" dock="bottom">
           <Repeater.itemTemplate>
             <StackLayout class="comment-inner">
-              <StackLayout class="comment-info" orientation="horizontal">
-                <Label class="comment-score" text="{{ score }}" />
-                <Label class="comment-author" text="{{ ('via ' + commenting_user.username) }}" />
-                <Label class="comment-created" text="{{ created }}" />
+              <StackLayout class="{{ ('comment-indent-' + indent_level) }}">
+                <StackLayout class="comment-info" orientation="horizontal">
+                  <Label class="comment-score" text="{{ score }}" />
+                  <Label class="comment-author" text="{{ ('via ' + commenting_user.username) }}" />
+                  <Label class="comment-created" text="{{ created }}" />
+                </StackLayout>
+                <HtmlView class="comment-body" html="{{ comment }}" />
               </StackLayout>
-              <HtmlView class="comment-body" html="{{ comment }}" />
             </StackLayout>
           </Repeater.itemTemplate>
         </Repeater>

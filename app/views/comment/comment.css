@@ -15,4 +15,22 @@
   color: #AC130D;
 }
 
+.comment-indent-2 {
+  margin-left: 14;
+}
 
+.comment-indent-3 {
+  margin-left: 21;
+}
+
+.comment-indent-4 {
+  margin-left: 21;
+}
+
+.comment-indent-5 {
+  margin-left: 28;
+}
+
+.comment-indent-6 {
+  margin-left: 35;
+}
