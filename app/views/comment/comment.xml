@@ -1,0 +1,46 @@
+<Page navigatedTo="pageNavigatedTo" xmlns="http://www.nativescript.org/tns.xsd">
+  <Page.actionBar>
+    <ActionBar title="Lobste.rs" />
+  </Page.actionBar>
+  <ScrollView>
+  <DockLayout stretchLastChild="true">
+    <StackLayout class="post-inner" dock="top">
+      <Label class="post-title" text="{{ post.title }}" textWrap="true" />
+      <Label class="post-url" text="{{ post.url }}" tap="openUrl" />
+      <Repeater class="post-tags-container" items="{{ post.tags }}">
+        <Repeater.itemsLayout>
+          <StackLayout orientation="horizontal" />
+        </Repeater.itemsLayout>
+        <Repeater.itemTemplate>
+          <Label class="tag" text="{{ $value }}" />
+        </Repeater.itemTemplate>
+      </Repeater>
+      <StackLayout class="post-info" orientation="horizontal">
+        <Label class="post-score" text="{{ post.score }}" />
+        <Label class="post-author" text="{{ ('via ' + post.submitter_user.username) }}" />
+        <Label class="post-created" text="{{ post.created }}" />
+      </StackLayout>
+      <Label class="post-description" text="{{ post.description }}" textWrap="true" />
+      <Label class="post-comments" text="{{ (post.comment_count + (post.comment_count === 1 ? ' comment' : ' comments')) }}"/>
+    </StackLayout>
+    <Repeater items="{{ comments }}" id="comment-list" dock="bottom">
+      <Repeater.itemTemplate>
+        <StackLayout>
+          <StackLayout class="border" style="height: 1; border-width: 1; border-color: #d3d3d3;">
+          </StackLayout>
+          <StackLayout class="comment-inner">
+            <StackLayout class="{{ ('comment-indent-' + indent_level) }}">
+              <StackLayout class="comment-info" orientation="horizontal">
+                <Label class="comment-score" text="{{ score }}" />
+                <Label class="comment-author" text="{{ ('via ' + commenting_user.username) }}" />
+                <Label class="comment-created" text="{{ created }}" />
+              </StackLayout>
+              <Label class="comment-body" text="{{ sanitized_comment }}" textWrap="true" />
+            </StackLayout>
+          </StackLayout>
+        </StackLayout>
+      </Repeater.itemTemplate>
+    </Repeater>
+  </DockLayout>
+  </ScrollView>
+</Page>

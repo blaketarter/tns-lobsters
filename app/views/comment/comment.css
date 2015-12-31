@@ -1,0 +1,48 @@
+.post-description {
+  color: #000000;
+  font-size: 12;
+  margin-top: 7;
+}
+
+.comment-inner {
+  padding: 7 15;
+}
+
+.comment-info {
+  font-size: 12;
+  color: #666666;
+}
+
+.comment-author, .comment-created, .comment-score {
+  padding-right: 7;
+}
+
+.comment-score {
+  color: #AC130D;
+}
+
+.comment-body {
+  color: #000000;
+  font-size: 12;
+  margin-top: 7;
+}
+
+.comment-indent-2 {
+  margin-left: 14;
+}
+
+.comment-indent-3 {
+  margin-left: 21;
+}
+
+.comment-indent-4 {
+  margin-left: 21;
+}
+
+.comment-indent-5 {
+  margin-left: 28;
+}
+
+.comment-indent-6 {
+  margin-left: 35;
+}

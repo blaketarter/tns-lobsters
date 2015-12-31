@@ -49,12 +49,15 @@ exports.loaded = function(args) {
 
         buildPostData(data);
       });
-      
+
       if (page.android) {
         let window = app.android.currentContext.getWindow();
-        window.setStatusBarColor(
-          new color.Color('#890f0a').android
-        );
+
+        if (window && window.setStatusBarColor) {
+          window.setStatusBarColor(
+            new color.Color('#890f0a').android
+          );
+        }
       }
 
       if (page.ios) {
@@ -66,6 +69,8 @@ exports.loaded = function(args) {
 };
 
 exports.openUrl = openUrl;
+
+exports.listViewItemTap = listViewItemTap;
 
 function buildPostData(raw) {
   raw.map(function(rawPost) {
@@ -79,6 +84,21 @@ function formatDate(date) {
 }
 
 function openUrl(event) {
-  console.log(event.object.text);
   utilityModule.openUrl(event.object.text);
+}
+
+function listViewItemTap(args) {
+  var index = args.index;
+
+  var topmost = frameModule.topmost();
+
+  var navigationEntry = {
+    moduleName: 'views/comment/comment',
+    context: {
+      post: pageData.posts.getItem(index)
+    },
+    animated: true
+  };
+
+  topmost.navigate(navigationEntry);
 }

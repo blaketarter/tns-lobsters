@@ -1,33 +1,33 @@
 {
-  "name": "TNS-Lobsters",
-  "version": "0.0.1",
-  "description": "Lobsters client built using nativescript",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/blaketarter/tns-reddit"
-  },
-  "keywords": [
-    "NativeScript",
-    "Reddit"
-  ],
-  "author": "Blake Tarter",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/blaketarter/tns-reddit/issues"
-  },
-  "homepage": "https://github.com/blaketarter/tns-reddit",
-  "nativescript": {
-    "id": "com.blaketarter.tnsreddit",
-    "tns-android": {
-      "version": "1.5.1"
-    },
-    "tns-ios": {
-      "version": "1.5.1"
-    }
-  },
-  "dependencies": {
-    "moment": "^2.10.6",
-    "nativescript-telerik-ui": "^0.2.1",
-    "tns-core-modules": "1.5"
-  }
+	"name": "TNS-Lobsters",
+	"version": "0.0.1",
+	"description": "Lobsters client built using nativescript",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/blaketarter/tns-reddit"
+	},
+	"keywords": [
+		"NativeScript",
+		"Reddit"
+	],
+	"author": "Blake Tarter",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/blaketarter/tns-reddit/issues"
+	},
+	"homepage": "https://github.com/blaketarter/tns-reddit",
+	"nativescript": {
+		"id": "com.blaketarter.tnsreddit",
+		"tns-android": {
+			"version": "1.5.1"
+		},
+		"tns-ios": {
+			"version": "1.5.1"
+		}
+	},
+	"dependencies": {
+		"moment": "^2.10.6",
+		"striptags": "^2.0.4",
+		"tns-core-modules": "1.5"
+	}
 }
