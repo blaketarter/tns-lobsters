@@ -6,6 +6,7 @@ var dialog = require("ui/dialogs");
 var observable = require("data/observable");
 var observableArray = require("data/observable-array");
 var moment = require('moment');
+var striptags = require('striptags');
 
 var view = require("ui/core/view");
 var actionBarModule = require("ui/action-bar");
@@ -87,6 +88,7 @@ function buildPostData(raw) {
 function buildCommentData(raw) {
   raw.map(function(rawComment) {
     rawComment.created = formatDate(rawComment.created_at);
+    rawComment.sanitized_comment = striptags(rawComment.comment);
     pageData.comments.push(rawComment);
   });
 }

@@ -15,6 +15,12 @@
   color: #AC130D;
 }
 
+.comment-body {
+  color: #000000;
+  font-size: 12;
+  margin-top: 7;
+}
+
 .comment-indent-2 {
   margin-left: 14;
 }
