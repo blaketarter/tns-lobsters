@@ -40,6 +40,7 @@ exports.pageNavigatedTo = function(args) {
   page.bindingContext = pageData;
   
   pageData.post = formatPost(page.navigationContext.post);
+  pageData.comments = new observableArray.ObservableArray([]);
 
   getComments(pageData.post.comments_url);
 };
