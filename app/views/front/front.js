@@ -116,7 +116,7 @@ function listViewItemTap(args) {
   var topmost = frameModule.topmost();
 
   var navigationEntry = {
-    moduleName: 'views/comment/comment',
+    moduleName: './views/comment/comment',
     context: {
       post: pageData[pageData.currentTab].getItem(index)
     },
