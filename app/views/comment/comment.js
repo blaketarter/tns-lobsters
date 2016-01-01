@@ -1,16 +1,16 @@
-"use strict";
+'use strict';
 
 var app = require('application');
 var http = require('fetch');
-var observable = require("data/observable");
-var observableArray = require("data/observable-array");
+var observable = require('data/observable');
+var observableArray = require('data/observable-array');
 var moment = require('moment');
 var striptags = require('striptags');
 
-var view = require("ui/core/view");
-var frameModule = require("ui/frame");
+var view = require('ui/core/view');
+var frameModule = require('ui/frame');
 
-var utilityModule = require("utils/utils");
+var utilityModule = require('utils/utils');
 var color = require('color');
 
 var pageData = new observable.Observable({
@@ -34,6 +34,7 @@ function buildCommentData(raw) {
   raw.map(function(rawComment) {
     rawComment.created = formatDate(rawComment.created_at);
     rawComment.sanitized_comment = striptags(rawComment.comment);
+    // rawComment.sanitized_comment = rawComment.comment;
     pageData.comments.push(rawComment);
   });
 }
@@ -47,6 +48,7 @@ function formatPost(post) {
 
   if (post && post.description && post.description.length) {
     returnVal.description = striptags(returnVal.description);
+    // returnVal.description = returnVal.description;
   }
 
   return returnVal;
@@ -65,3 +67,4 @@ function getComments(commentUrl) {
       buildCommentData(data.comments);
     });
 }
+
