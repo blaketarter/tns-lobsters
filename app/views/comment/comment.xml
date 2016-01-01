@@ -1,6 +1,8 @@
 <Page navigatedTo="pageNavigatedTo" xmlns="http://www.nativescript.org/tns.xsd">
   <Page.actionBar>
-    <ActionBar title="Lobste.rs" />
+    <ActionBar title="Lobste.rs">
+      <NavigationButton text="Back"/>
+    </ActionBar>
   </Page.actionBar>
   <ScrollView>
   <DockLayout stretchLastChild="true">

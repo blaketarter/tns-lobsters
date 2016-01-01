@@ -2,28 +2,64 @@
   <Page.actionBar>
     <ActionBar title="Lobste.rs" />
   </Page.actionBar>
-  <StackLayout id="stack-container">
-    <ListView id="post-list" items="{{ posts }}" itemTap="listViewItemTap">
-      <ListView.itemTemplate>
-        <StackLayout class="post-inner">
-          <Label class="post-title" text="{{ title }}" textWrap="true" />
-          <Label class="post-url" text="{{ url }}" tap="openUrl" />
-          <Repeater class="post-tags-container" items="{{ tags }}">
-            <Repeater.itemsLayout>
-              <StackLayout orientation="horizontal" />
-            </Repeater.itemsLayout>
-            <Repeater.itemTemplate>
-              <Label class="tag" text="{{ $value }}" />
-            </Repeater.itemTemplate>
-          </Repeater>
-          <StackLayout class="post-info" orientation="horizontal">
-            <Label class="post-score" text="{{ score }}" />
-            <Label class="post-author" text="{{ ('via ' + submitter_user.username) }}" />
-            <Label class="post-created" text="{{ created }}" />
+  <TabView selectedIndexChanged="selectedIndexChanged">
+    <TabView.items>
+      <TabViewItem title="Home">
+        <TabViewItem.view>
+          <StackLayout id="stack-container">
+            <ListView id="post-list" items="{{ hottest }}" itemTap="listViewItemTap">
+              <ListView.itemTemplate>
+                <StackLayout class="post-inner">
+                  <Label class="post-title" text="{{ title }}" textWrap="true" />
+                  <Label class="post-url" text="{{ url }}" tap="openUrl" />
+                  <Repeater class="post-tags-container" items="{{ tags }}">
+                    <Repeater.itemsLayout>
+                      <StackLayout orientation="horizontal" />
+                    </Repeater.itemsLayout>
+                    <Repeater.itemTemplate>
+                      <Label class="tag" text="{{ $value }}" />
+                    </Repeater.itemTemplate>
+                  </Repeater>
+                  <StackLayout class="post-info" orientation="horizontal">
+                    <Label class="post-score" text="{{ score }}" />
+                    <Label class="post-author" text="{{ ('via ' + submitter_user.username) }}" />
+                    <Label class="post-created" text="{{ created }}" />
+                  </StackLayout>
+                  <Label class="post-comments" text="{{ (comment_count + (comment_count === 1 ? ' comment' : ' comments')) }}"/>
+                </StackLayout>
+              </ListView.itemTemplate>
+            </ListView>
           </StackLayout>
-          <Label class="post-comments" text="{{ (comment_count + (comment_count === 1 ? ' comment' : ' comments')) }}"/>
-        </StackLayout>
-      </ListView.itemTemplate>
-    </ListView>
-  </StackLayout>
+        </TabViewItem.view>
+      </TabViewItem>
+      <TabViewItem title="Recent">
+        <TabViewItem.view>
+          <StackLayout id="stack-container">
+            <ListView id="post-list" items="{{ newest }}" itemTap="listViewItemTap">
+              <ListView.itemTemplate>
+                <StackLayout class="post-inner">
+                  <Label class="post-title" text="{{ title }}" textWrap="true" />
+                  <Label class="post-url" text="{{ url }}" tap="openUrl" />
+                  <Repeater class="post-tags-container" items="{{ tags }}">
+                    <Repeater.itemsLayout>
+                      <StackLayout orientation="horizontal" />
+                    </Repeater.itemsLayout>
+                    <Repeater.itemTemplate>
+                      <Label class="tag" text="{{ $value }}" />
+                    </Repeater.itemTemplate>
+                  </Repeater>
+                  <StackLayout class="post-info" orientation="horizontal">
+                    <Label class="post-score" text="{{ score }}" />
+                    <Label class="post-author" text="{{ ('via ' + submitter_user.username) }}" />
+                    <Label class="post-created" text="{{ created }}" />
+                  </StackLayout>
+                  <Label class="post-comments" text="{{ (comment_count + (comment_count === 1 ? ' comment' : ' comments')) }}"/>
+                </StackLayout>
+              </ListView.itemTemplate>
+            </ListView>
+          </StackLayout>
+        </TabViewItem.view>
+      </TabViewItem>
+    </TabView.items>
+  </TabView>
 </Page>
