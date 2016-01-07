@@ -4,20 +4,20 @@
 	"description": "Lobsters client built using nativescript",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/blaketarter/tns-reddit"
+		"url": "https://github.com/blaketarter/tns-lobsters"
 	},
 	"keywords": [
 		"NativeScript",
-		"Reddit"
+		"Lobsters"
 	],
 	"author": "Blake Tarter",
 	"license": "MIT",
 	"bugs": {
-		"url": "https://github.com/blaketarter/tns-reddit/issues"
+		"url": "https://github.com/blaketarter/tns-lobsters/issues"
 	},
-	"homepage": "https://github.com/blaketarter/tns-reddit",
+	"homepage": "https://github.com/blaketarter/tns-lobsters",
 	"nativescript": {
-		"id": "com.blaketarter.tnsreddit",
+		"id": "com.blaketarter.tnslobsters",
 		"tns-android": {
 			"version": "1.5.1"
 		},
