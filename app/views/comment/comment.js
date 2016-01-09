@@ -4,6 +4,7 @@ var app = require('application');
 var http = require('fetch');
 var observable = require('data/observable');
 var observableArray = require('data/observable-array');
+var frameModule = require("ui/frame");
 
 var utilityModule = require('utils/utils');
 
@@ -22,7 +23,23 @@ exports.pageNavigatedTo = function(args) {
   pageData.post.reload(true);
 };
 
+exports.shownModally = function(args) {
+  var page = args.object;
+  page.bindingContext = pageData;
+  let closeCallback = args.closeCallback;
+  
+  pageData.post = args.context;
+  pageData.comments = pageData.post.comments;
+
+  pageData.post.reload(true);
+};
+
 exports.openUrl = openUrl;
+
+exports.navTap = function() {
+  var topmost = frameModule.topmost();
+  topmost.goBack();
+};
 
 function openUrl(event) {
   utilityModule.openUrl(event.object.text);

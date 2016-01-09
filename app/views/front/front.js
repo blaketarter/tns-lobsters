@@ -69,6 +69,16 @@ exports.openUrl = openUrl;
 
 exports.listViewItemTap = listViewItemTap;
 
+function showModal(post) {
+    page.showModal('./views/comment/comment', post, function() {
+      console.log('hide modal');
+    }, false);
+}
+
+exports.onCloseModal = function(args) {
+    page.closeModal();
+};
+
 function openUrl(event) {
   utilityModule.openUrl(event.object.text);
 }
@@ -77,6 +87,8 @@ function listViewItemTap(args) {
   var index = args.index;
   
   var topmost = frameModule.topmost();
+  
+  // showModal(pageData[pageData.currentTab].getItem(index));
 
   var navigationEntry = {
     moduleName: './views/comment/comment',
