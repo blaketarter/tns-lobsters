@@ -22,10 +22,10 @@ exports.pageNavigatedTo = function(args) {
   var page = args.object;
   page.bindingContext = pageData;
   
-  pageData.post = formatPost(page.navigationContext.post);
-  pageData.comments = new observableArray.ObservableArray([]);
+  pageData.post = page.navigationContext.post;
+  pageData.comments = pageData.post.comments;
 
-  getComments(pageData.post.comments_url);
+  pageData.post.reload(true);
 };
 
 exports.openUrl = openUrl;
