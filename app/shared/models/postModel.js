@@ -1,3 +1,4 @@
+"use strict";
 const moment = require('moment');
 const http = require('fetch');
 const observableArray = require('data/observable-array');
@@ -18,7 +19,7 @@ class Post {
     this.sanitizedDescription = striptags(options.description);
     this.shortId = options.short_id;
     this.shortIdUrl = options.short_id_url;
-    this.comments = new ObservableArray.observableArray([]);
+    this.comments = new observableArray.ObservableArray([]);
   }
 
   getComments() {
@@ -55,7 +56,7 @@ class Post {
     });
   }
   
-  reload(shouldReloadComments = false) {
+  reload(shouldReloadComments) {
     let self = this;
     return new Promise(function(resolve, reject) {
       http.fetch(self.shortIdUrl + '.json')

@@ -22,19 +22,23 @@ var utilityModule = require("utils/utils");
 var color = require('color');
 var orientation = enums.Orientation;
 
-var hottest = 'https://lobste.rs/hottest.json';
-var newest = 'https://lobste.rs/newest.json';
 var page;
 var posts = [];
 var lastPageId = '';
 var loadMore;
 var loading = false;
 
+var Hottest = require('../../shared/models/hottest');
+var Newest = require('../../shared/models/newest');
+
+var hottest = new Hottest();
+var newest = new Newest();
+
 // var testData = require('../../data/front');
 
 var pageData = new observable.Observable({
-    hottest: new observableArray.ObservableArray([]),
-    newest: new observableArray.ObservableArray([]),
+    hottest: hottest.posts,
+    newest: newest.posts,
     currentTab: 'hottest'
 });
 
@@ -53,24 +57,15 @@ exports.loaded = function(args) {
     page = args.object;
     page.bindingContext = pageData;
 
-    http.fetch(hottest)
-      .then(function(response) {
-        return response.json();
-      })
-      .then(function(data) {
-        pageData.hottest = new observableArray.ObservableArray(posts);
+    console.log(hottest.load);
+    hottest.load()
+      .then(function(posts) {
+        console.log(posts);
+      });
 
-        buildPostData(data, 'hottest');
-       
-        http.fetch(newest)
-          .then(function(response) {
-            return response.json();
-          })
-          .then(function(data) {
-            pageData.newest = new observableArray.ObservableArray(posts);
-
-            buildPostData(data, 'newest');
-          });
+    newest.load()
+      .then(function(posts) {
+        console.log(posts);
       });
 
       if (page.android) {

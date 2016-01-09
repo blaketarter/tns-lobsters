@@ -22,10 +22,10 @@
                   </Repeater>
                   <StackLayout class="post-info" orientation="horizontal">
                     <Label class="post-score" text="{{ score }}" />
-                    <Label class="post-author" text="{{ ('via ' + submitter_user.username) }}" />
+                    <Label class="post-author" text="{{ ('via ' + author) }}" />
                     <Label class="post-created" text="{{ created }}" />
                   </StackLayout>
-                  <Label class="post-comments" text="{{ (comment_count + (comment_count === 1 ? ' comment' : ' comments')) }}"/>
+                  <Label class="post-comments" text="{{ (commentCount + (commentCount === 1 ? ' comment' : ' comments')) }}"/>
                 </StackLayout>
               </ListView.itemTemplate>
             </ListView>
@@ -50,10 +50,10 @@
                   </Repeater>
                   <StackLayout class="post-info" orientation="horizontal">
                     <Label class="post-score" text="{{ score }}" />
-                    <Label class="post-author" text="{{ ('via ' + submitter_user.username) }}" />
+                    <Label class="post-author" text="{{ ('via ' + author) }}" />
                     <Label class="post-created" text="{{ created }}" />
                   </StackLayout>
-                  <Label class="post-comments" text="{{ (comment_count + (comment_count === 1 ? ' comment' : ' comments')) }}"/>
+                  <Label class="post-comments" text="{{ (commentCount + (commentCount === 1 ? ' comment' : ' comments')) }}"/>
                 </StackLayout>
               </ListView.itemTemplate>
             </ListView>

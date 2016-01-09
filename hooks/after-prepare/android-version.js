@@ -20,8 +20,8 @@ module.exports = function($logger) {
       if (err) {
         reject(err);
       } else {
-        data.manifest.$['android:versionName'] = versionNameString;
-        data.manifest.$['android:versionCode'] = versionCodeString;
+        data.manifest.$['android:versionName'] = versionNameString.trim();
+        data.manifest.$['android:versionCode'] = versionCodeString.trim();
 
         manifestXML = builder.buildObject(data);
         
