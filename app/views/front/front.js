@@ -57,15 +57,12 @@ exports.loaded = function(args) {
     page = args.object;
     page.bindingContext = pageData;
 
-    console.log(hottest.load);
     hottest.load()
-      .then(function(posts) {
-        console.log(posts);
+      .then(function() {
       });
 
     newest.load()
-      .then(function(posts) {
-        console.log(posts);
+      .then(function() {
       });
 
       if (page.android) {

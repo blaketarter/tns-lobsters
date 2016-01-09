@@ -18,7 +18,7 @@ class Newest {
         })
         .then(function(data) {
           data.forEach(function(v) {
-            self.posts.push(new Post(data));
+            self.posts.push(new Post(v));
           });
 
           resolve(self.posts);

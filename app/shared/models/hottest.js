@@ -11,22 +11,15 @@ class Hottest {
 
   load() {
     let self = this;
-    console.log('in load');
     return new Promise(function(resolve, reject) {
       http.fetch(self.url)
         .then(function(response) {
           return response.json();
         })
         .then(function(data) {
-          console.log('hottest response');
-          console.log(data);
           data.forEach(function(v) {
-            console.log('each');
-            self.posts.push(new Post(data));
+            self.posts.push(new Post(v));
           });
-
-
-          console.log(self.posts);
           resolve(self.posts);
         });
     });
