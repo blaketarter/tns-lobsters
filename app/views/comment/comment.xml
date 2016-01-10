@@ -24,6 +24,7 @@
       </StackLayout>
       <Label class="post-description" text="{{ post.description }}" textWrap="true" />
       <Label class="post-comments" text="{{ (post.commentCount + (post.commentCount === 1 ? ' comment' : ' comments')) }}"/>
+    <ActivityIndicator busy="{{ isLoading }}" height="{{ (isLoading) ? 45 : 0 }}" />
     </StackLayout>
     <Repeater items="{{ comments }}" id="comment-list" dock="bottom">
       <Repeater.itemTemplate>

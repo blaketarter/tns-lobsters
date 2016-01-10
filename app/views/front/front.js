@@ -21,7 +21,8 @@ var newest = new Newest();
 var pageData = new observable.Observable({
     hottest: hottest.posts,
     newest: newest.posts,
-    currentTab: 'hottest'
+    currentTab: 'hottest',
+    isLoading: true
 });
 
 exports.selectedIndexChanged = function(args) {
@@ -41,6 +42,7 @@ exports.loaded = function(args) {
 
     hottest.load()
       .then(function() {
+        pageData.isLoading = false;
       });
 
     newest.load()

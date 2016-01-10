@@ -10,7 +10,8 @@ var utilityModule = require('utils/utils');
 
 var pageData = new observable.Observable({
     comments: new observableArray.ObservableArray([]),
-    post: new observable.Observable()
+    post: new observable.Observable(),
+    isLoading: true
 });
 
 exports.pageNavigatedTo = function(args) {
@@ -20,7 +21,10 @@ exports.pageNavigatedTo = function(args) {
   pageData.post = page.navigationContext.post;
   pageData.comments = pageData.post.comments;
 
-  pageData.post.reload(true);
+  pageData.post.reload(true)
+    .then(function() {
+      pageData.isLoading = false;
+    });
 };
 
 exports.shownModally = function(args) {
