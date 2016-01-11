@@ -10,6 +10,9 @@ class Comment {
     this.created = moment(options.created_at).fromNow();
     this.comment = options.comment;
     this.sanitizedComment = striptags(options.comment);
+    this.collapse = false;
+    this.commentCollapse = false;
+    this.index = options.index;
   }
 
   formatComment() {

@@ -4,6 +4,15 @@
   margin-top: 7;
 }
 
+.collapse {
+  background-color: grey;
+  height: 25;
+}
+
+.comment-collapse {
+  visibility: 'collapse';
+}
+
 .comment-inner {
   padding: 7 15;
 }

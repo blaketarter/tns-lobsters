@@ -28,7 +28,7 @@
     </StackLayout>
     <Repeater items="{{ comments }}" id="comment-list" dock="bottom">
       <Repeater.itemTemplate>
-        <StackLayout>
+        <StackLayout class="{{ (collapse) ? 'collapse' : ''}}" longPress="longPressComment">
           <StackLayout class="border" style="height: 1; border-width: 1; border-color: #d3d3d3;">
           </StackLayout>
           <StackLayout class="comment-inner">
@@ -38,7 +38,7 @@
                 <Label class="comment-author" text="{{ ('via ' + author) }}" />
                 <Label class="comment-created" text="{{ created }}" />
               </StackLayout>
-              <Label class="comment-body" text="{{ sanitizedComment }}" textWrap="true" />
+              <Label class="comment-body" text="{{ sanitizedComment }}" textWrap="true" visibility="{{ (commentCollapse) ? 'collapsed' : 'visible' }}" />
             </StackLayout>
           </StackLayout>
         </StackLayout>

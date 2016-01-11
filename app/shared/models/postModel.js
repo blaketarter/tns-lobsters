@@ -43,7 +43,8 @@ class Post {
   _processComments(rawComments) {
     let tempComments = [];
 
-    rawComments.forEach(function(v) {
+    rawComments.forEach(function(v, i) {
+      v.index = i;
       tempComments.push(new Comment(v));
     });
 
