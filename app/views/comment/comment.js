@@ -46,6 +46,14 @@ exports.navTap = function() {
   topmost.goBack();
 };
 
+exports.reload = function() {
+  pageData.isLoading = true;
+  pageData.post.reload(true)
+    .then(function() {
+      pageData.isLoading = false;
+    });
+};
+
 exports.longPressComment = function(args) {
   let object = args.object;
   let parent = object._parent;

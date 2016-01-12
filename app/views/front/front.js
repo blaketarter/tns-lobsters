@@ -22,7 +22,9 @@ var pageData = new observable.Observable({
     hottest: hottest.posts,
     newest: newest.posts,
     currentTab: 'hottest',
-    isLoading: true
+    isLoading: true,
+    hottestClass: hottest,
+    newestClass: newest
 });
 
 exports.selectedIndexChanged = function(args) {
@@ -70,6 +72,14 @@ exports.loaded = function(args) {
 exports.openUrl = openUrl;
 
 exports.listViewItemTap = listViewItemTap;
+
+exports.reload = function() {
+  pageData.isLoading = true;
+  pageData[pageData.currentTab + 'Class'].reload()
+    .then(function() {
+      pageData.isLoading = false;
+    });
+};
 
 function showModal(post) {
     page.showModal('./views/comment/comment', post, function() {

@@ -28,7 +28,9 @@ class Hottest {
   reload() {
     let self = this;
     return new Promise(function(resolve, reject) {
-      self.posts = [];
+      while(self.posts.length) {
+        self.posts.pop();
+      }
 
       self.load()
         .then(function(posts) {
