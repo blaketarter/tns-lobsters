@@ -47,8 +47,6 @@ exports.navTap = function() {
 };
 
 exports.longPressComment = function(args) {
-  console.log('longpress');
-  
   let object = args.object;
   let parent = object._parent;
   let domId = object._domId;
@@ -94,9 +92,9 @@ function toggleComments(comments, target, children, view, parent) {
     target.originalHeight = view.getMeasuredHeight();
   }
 
-  console.log(target.originalHeight);
-
-  view.setInlineStyle((target.collapse) ? 'height: 32px; background-color: #e3e3e3; overflow: hidden;' : 'height: ' + target.originalHeight + '; background-color: white;');
+  view.setInlineStyle(
+    (target.collapse) ? 'height: 32; background-color: #e3e3e3;' : 'height: initial; background-color: white;'
+  );
 
   for (let i = 0, ii = children.length; i < ii; i++) {
     let child = comments.getItem(children[i].index);
@@ -106,11 +104,8 @@ function toggleComments(comments, target, children, view, parent) {
       child.originalHeight = parent._subViews[child.index].getMeasuredHeight();
     }
 
-    console.log(child.originalHeight);
-
-    // parent._subViews[child.index]._applyXmlAttribute('visibility', (child.commentCollapse) ? 'collapse' : 'visible'); 
-
-    // parent._subViews[child.index].updateLayout();
-    parent._subViews[child.index].setInlineStyle((child.commentCollapse) ? 'height: 0; overflow: hidden;' : 'height: ' + child.originalHeight + ';');
+    parent._subViews[child.index].setInlineStyle(
+      (child.commentCollapse) ? 'height: 0;' : 'height: initial;'
+    );
   }
 }

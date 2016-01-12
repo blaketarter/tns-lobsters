@@ -25,6 +25,8 @@ class Post {
   getComments() {
     let self = this;
     return new Promise(function(resolve, reject) {
+      self._unloadComments();
+
       http.fetch(self.commentsUrl + '.json')
        .then(function(response) {
           return response.json();
@@ -52,9 +54,9 @@ class Post {
   }
 
   _unloadComments() {
-    this.comments.forEach(function(v, i, a) {
-      a.shift();
-    });
+    while(this.comments.length) {
+      this.comments.pop();
+    }
   }
   
   reload(shouldReloadComments) {
@@ -79,8 +81,6 @@ class Post {
           self.shortIdUrl = data.short_id_url;
 
           if (shouldReloadComments) {
-            self._unloadComments();
-
             self.getComments()
               .then(function() {
                 resolve();
