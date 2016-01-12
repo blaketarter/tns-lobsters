@@ -13,6 +13,7 @@ class Comment {
     this.collapse = false;
     this.commentCollapse = false;
     this.index = options.index;
+    this.originalHeight = null;
   }
 
   formatComment() {

@@ -38,7 +38,7 @@
                 <Label class="comment-author" text="{{ ('via ' + author) }}" />
                 <Label class="comment-created" text="{{ created }}" />
               </StackLayout>
-              <Label class="comment-body" text="{{ sanitizedComment }}" textWrap="true" visibility="{{ (commentCollapse) ? 'collapsed' : 'visible' }}" />
+              <Label class="comment-body" text="{{ sanitizedComment }}" textWrap="true" visibility="{{ (commentCollapse) ? 'collapse' : 'visible' }}" />
             </StackLayout>
           </StackLayout>
         </StackLayout>

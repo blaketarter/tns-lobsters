@@ -58,14 +58,14 @@ exports.longPressComment = function(args) {
 
   for (let i = 0, ii = parent._subViews.length; i < ii; i++) {
     if (parent._subViews[i]._domId === domId) {
-      index = 0;
+      index = i;
     }
   }
 
   comment = pageData.comments.getItem(index);
   childrenComments = findChildrenComments(index, comment, pageData.comments);
 
-  toggleComments(pageData.comments, comment, childrenComments, object);
+  toggleComments(pageData.comments, comment, childrenComments, object, object._parent);
 };
 
 function openUrl(event) {
@@ -87,16 +87,30 @@ function findChildrenComments(startIndex, comment, comments) {
   return childrenComments;
 }
 
-function toggleComments(comments, target, children, view) {
+function toggleComments(comments, target, children, view, parent) {
   comments.getItem(target.index).collapse = !comments.getItem(target.index).collapse;
 
-  console.log( comments.getItem(target.index).collapse );
+  if (!target.originalHeight) {
+    target.originalHeight = view.getMeasuredHeight();
+  }
+
+  console.log(target.originalHeight);
+
+  view.setInlineStyle((target.collapse) ? 'height: 32px; background-color: #e3e3e3; overflow: hidden;' : 'height: ' + target.originalHeight + '; background-color: white;');
 
   for (let i = 0, ii = children.length; i < ii; i++) {
-    comments.getItem(children[i].index).commentCollapse = !comments.getItem(children[i].index).commentCollapse;
+    let child = comments.getItem(children[i].index);
+    child.commentCollapse = !child.commentCollapse;
+    
+    if (!child.originalHeight) {
+      child.originalHeight = parent._subViews[child.index].getMeasuredHeight();
+    }
 
-    // console.log(view._parent._subViews[i].refresh());
+    console.log(child.originalHeight);
 
-    console.log(comments.getItem(children[i].index).commentCollapse );
+    // parent._subViews[child.index]._applyXmlAttribute('visibility', (child.commentCollapse) ? 'collapse' : 'visible'); 
+
+    // parent._subViews[child.index].updateLayout();
+    parent._subViews[child.index].setInlineStyle((child.commentCollapse) ? 'height: 0; overflow: hidden;' : 'height: ' + child.originalHeight + ';');
   }
 }
