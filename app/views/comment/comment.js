@@ -5,6 +5,7 @@ var http = require('fetch');
 var observable = require('data/observable');
 var observableArray = require('data/observable-array');
 var frameModule = require("ui/frame");
+var vibrator = require("nativescript-vibrate");
 
 var utilityModule = require('utils/utils');
 var view = require('ui/core/view');
@@ -61,6 +62,8 @@ exports.longPressComment = function(args) {
   let index = null;
   let comment = null;
   let childrenComments = [];
+
+  vibrator.vibration(250);
 
   for (let i = 0, ii = parent._subViews.length; i < ii; i++) {
     if (parent._subViews[i]._domId === domId) {

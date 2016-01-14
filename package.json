@@ -27,6 +27,7 @@
   },
   "dependencies": {
     "moment": "^2.10.6",
+    "nativescript-vibrate": "^1.1.0",
     "striptags": "^2.0.4",
     "tns-core-modules": "1.5"
   },
