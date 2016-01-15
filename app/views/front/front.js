@@ -41,13 +41,14 @@ exports.selectedIndexChanged = function(args) {
 exports.loaded = function(args) {
     page = args.object;
     page.bindingContext = pageData;
+    pageData.isLoading = true;
 
-    hottest.load()
+    hottest.reload()
       .then(function() {
         pageData.isLoading = false;
       });
 
-    newest.load()
+    newest.reload()
       .then(function() {
       });
 
@@ -74,11 +75,13 @@ exports.openUrl = openUrl;
 exports.listViewItemTap = listViewItemTap;
 
 exports.reload = function() {
-  pageData.isLoading = true;
-  pageData[pageData.currentTab + 'Class'].reload()
-    .then(function() {
-      pageData.isLoading = false;
-    });
+  if (!pageData.isLoading) {
+    pageData.isLoading = true;
+    pageData[pageData.currentTab + 'Class'].reload()
+      .then(function() {
+        pageData.isLoading = false;
+      });
+  }
 };
 
 function showModal(post) {

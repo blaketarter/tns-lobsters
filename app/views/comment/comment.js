@@ -19,6 +19,7 @@ var pageData = new observable.Observable({
 exports.pageNavigatedTo = function(args) {
   var page = args.object;
   page.bindingContext = pageData;
+  pageData.isLoading = true;
   
   pageData.post = page.navigationContext.post;
   pageData.comments = pageData.post.comments;
@@ -48,11 +49,13 @@ exports.navTap = function() {
 };
 
 exports.reload = function() {
-  pageData.isLoading = true;
-  pageData.post.reload(true)
-    .then(function() {
-      pageData.isLoading = false;
-    });
+  if (!pageData.isLoading) {
+    pageData.isLoading = true;
+    pageData.post.reload(true)
+      .then(function() {
+        pageData.isLoading = false;
+      });
+  }
 };
 
 exports.longPressComment = function(args) {
