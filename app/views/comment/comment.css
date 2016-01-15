@@ -36,13 +36,43 @@
 }
 
 .comment-indent-4 {
-  margin-left: 21;
-}
-
-.comment-indent-5 {
   margin-left: 28;
 }
 
-.comment-indent-6 {
+.comment-indent-5 {
   margin-left: 35;
+}
+
+.comment-indent-6 {
+  margin-left: 42;
+}
+
+.indent-color {
+  width: 2;
+  opacity: 0.5;
+  margin-right: 7;
+}
+
+.indent-1 {
+  background-color: red;
+}
+
+.indent-2 {
+  background-color: blue;
+}
+
+.indent-3 {
+  background-color: orange;
+}
+
+.indent-4 {
+  background-color: green;
+}
+
+.indent-5 {
+  background-color: red;
+}
+
+.indent-6 {
+  background-color: blue;
 }

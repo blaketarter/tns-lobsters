@@ -36,13 +36,17 @@
           <StackLayout class="border" style="height: 1; border-width: 1; border-color: #d3d3d3;">
           </StackLayout>
           <StackLayout class="comment-inner">
-            <StackLayout class="{{ ('comment-indent-' + indentLevel) }}">
-              <StackLayout class="comment-info" orientation="horizontal">
-                <Label class="comment-score" text="{{ score }}" />
-                <Label class="comment-author" text="{{ ('via ' + author) }}" />
-                <Label class="comment-created" text="{{ created }}" />
+            <StackLayout class="{{ ('comment-indent-' + indentLevel) }}" orientation="horizontal">
+              <StackLayout class="{{ 'indent-color ' + 'indent-' + indentLevel }}">
               </StackLayout>
-              <Label class="comment-body" text="{{ sanitizedComment }}" textWrap="true" visibility="{{ (commentCollapse) ? 'collapse' : 'visible' }}" />
+              <StackLayout class="comment-inner-inner">
+                <StackLayout class="comment-info" orientation="horizontal">
+                  <Label class="comment-score" text="{{ score }}" />
+                  <Label class="comment-author" text="{{ ('via ' + author) }}" />
+                  <Label class="comment-created" text="{{ created }}" />
+                </StackLayout>
+                <Label class="comment-body" text="{{ sanitizedComment }}" textWrap="true" visibility="{{ (commentCollapse) ? 'collapse' : 'visible' }}" />
+              </StackLayout>
             </StackLayout>
           </StackLayout>
         </StackLayout>
