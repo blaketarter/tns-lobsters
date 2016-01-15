@@ -30,17 +30,6 @@ exports.pageNavigatedTo = function(args) {
     });
 };
 
-exports.shownModally = function(args) {
-  var page = args.object;
-  page.bindingContext = pageData;
-  let closeCallback = args.closeCallback;
-  
-  pageData.post = args.context;
-  pageData.comments = pageData.post.comments;
-
-  pageData.post.reload(true);
-};
-
 exports.openUrl = openUrl;
 
 exports.navTap = function() {
@@ -66,7 +55,7 @@ exports.longPressComment = function(args) {
   let comment = null;
   let childrenComments = [];
 
-  vibrator.vibration(250);
+  vibrator.vibration(15);
 
   for (let i = 0, ii = parent._subViews.length; i < ii; i++) {
     if (parent._subViews[i]._domId === domId) {
