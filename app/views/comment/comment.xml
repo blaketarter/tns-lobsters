@@ -11,24 +11,26 @@
   <ScrollView>
   <DockLayout stretchLastChild="true">
     <StackLayout class="post-inner" dock="top">
-      <Label class="post-title" text="{{ post.title }}" textWrap="true" />
-      <Label class="post-url" text="{{ post.url }}" tap="openUrl" />
-      <Repeater class="post-tags-container" items="{{ post.tags }}">
-        <Repeater.itemsLayout>
-          <StackLayout orientation="horizontal" />
-        </Repeater.itemsLayout>
-        <Repeater.itemTemplate>
-          <Label class="tag" text="{{ $value }}" />
-        </Repeater.itemTemplate>
-      </Repeater>
-      <StackLayout class="post-info" orientation="horizontal">
-        <Label class="post-score" text="{{ post.score }}" />
-        <Label class="post-author" text="{{ ('via ' + author) }}" />
-        <Label class="post-created" text="{{ post.created }}" />
+      <StackLayout class="card">
+        <Label class="post-title" text="{{ post.title }}" textWrap="true" />
+        <Label class="post-url" text="{{ post.url }}" tap="openUrl" />
+        <Repeater class="post-tags-container" items="{{ post.tags }}">
+          <Repeater.itemsLayout>
+            <StackLayout orientation="horizontal" />
+          </Repeater.itemsLayout>
+          <Repeater.itemTemplate>
+            <Label class="tag" text="{{ $value }}" />
+          </Repeater.itemTemplate>
+        </Repeater>
+        <StackLayout class="post-info" orientation="horizontal">
+          <Label class="post-score" text="{{ post.score }}" />
+          <Label class="post-author" text="{{ ('via ' + author) }}" />
+          <Label class="post-created" text="{{ post.created }}" />
+        </StackLayout>
+        <Label class="post-description" text="{{ post.description }}" textWrap="true" />
+        <Label class="post-comments" text="{{ (post.commentCount + (post.commentCount === 1 ? ' comment' : ' comments')) }}"/>
       </StackLayout>
-      <Label class="post-description" text="{{ post.description }}" textWrap="true" />
-      <Label class="post-comments" text="{{ (post.commentCount + (post.commentCount === 1 ? ' comment' : ' comments')) }}"/>
-    <ActivityIndicator busy="{{ isLoading }}" height="{{ (isLoading) ? 45 : 0 }}" />
+      <ActivityIndicator busy="{{ isLoading }}" height="{{ (isLoading) ? 45 : 0 }}" />
     </StackLayout>
     <Repeater items="{{ comments }}" id="comment-list" dock="bottom">
       <Repeater.itemTemplate>

@@ -1,3 +1,7 @@
+.post-inner {
+  padding: 10;
+}
+
 .post-description {
   color: #000000;
   font-size: 12;

@@ -4,11 +4,20 @@ ActionBar {
 }
 
 .list-layout {
-  width: 100%;
+  /* width: 100%; */
 }
 
 .post-inner {
-  padding: 7 15;
+  padding-top: 10;
+  padding-left: 10;
+  padding-right: 10;
+  background-color: #efefef;
+}
+
+.card {
+  padding: 10;
+  border-radius: 3;
+  background-color: white;
 }
 
 .post-title {
