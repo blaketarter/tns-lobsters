@@ -27,7 +27,7 @@
           <Label class="post-author" text="{{ ('via ' + author) }}" />
           <Label class="post-created" text="{{ post.created }}" />
         </StackLayout>
-        <Label class="post-description" text="{{ post.description }}" textWrap="true" />
+        <Label class="post-description" text="{{ post.sanitizedDescription }}" textWrap="true" />
         <Label class="post-comments" text="{{ (post.commentCount + (post.commentCount === 1 ? ' comment' : ' comments')) }}"/>
       </StackLayout>
       <ActivityIndicator busy="{{ isLoading }}" height="{{ (isLoading) ? 45 : 0 }}" />
