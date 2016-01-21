@@ -8,6 +8,7 @@ var frameModule = require("ui/frame");
 var vibrator = require("nativescript-vibrate");
 
 var utilityModule = require('utils/utils');
+require('../../shared/utils/utils');
 var view = require('ui/core/view');
 
 var pageData = new observable.Observable({
@@ -27,6 +28,16 @@ exports.pageNavigatedTo = function(args) {
   pageData.post.reload(true)
     .then(function() {
       pageData.isLoading = false;
+
+      if (!pageData.post.sanitizedDescription.trim().length) {
+        global.getElementsByClassName('post-description')[0].setInlineStyle(
+          'height: 0; margin-top: 0; margin-bottom: 0;'
+        );
+      } else {
+        global.getElementsByClassName('post-description')[0].setInlineStyle(
+          ''
+        );
+      }
     });
 };
 
@@ -96,7 +107,11 @@ function toggleComments(comments, target, children, view, parent) {
   }
 
   view.setInlineStyle(
-    (target.collapse) ? 'height: 32; background-color: #e3e3e3;' : 'height: initial; background-color: white;'
+    (target.collapse) ? 'height: 32; background-color: #efefef;' : 'height: initial; background-color: white;'
+  );
+
+  view.getElementsByClassName('comment-inner')[0].setInlineStyle(
+    (target.collapse) ? 'background-color: #efefef;' : 'background-color: white;'
   );
 
   for (let i = 0, ii = children.length; i < ii; i++) {
