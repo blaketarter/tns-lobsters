@@ -1,10 +1,10 @@
+Page {
+  background-color: #efefef;
+}
+
 ActionBar {
   background-color: #AC130D;
   color: white;
-}
-
-.list-layout {
-  /* width: 100%; */
 }
 
 .post-inner {
@@ -37,21 +37,17 @@ ActionBar {
 
 .tag {
   font-size: 10;
-  /* color: #ffffff; */
   color: #666666;
-  background-color: #efefef;
   border-radius: 10;
-  border-color: #b7b7b7;
+  border-color: #666666;
   border-width: 1;
   padding: 3 7;
   margin-right: 7;
-  margin-bottom: 7;
+  margin-top: 7;
 }
 
 .post-url {
   font-size: 14;
-  /* margin-top: 7; */
-  /* border-top: 1px solid #666666; */
   margin-bottom: 7;
   color: #ac120d;
 }

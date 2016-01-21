@@ -14,6 +14,11 @@
       <StackLayout class="card">
         <Label class="post-title" text="{{ post.title }}" textWrap="true" />
         <Label class="post-url" text="{{ post.url }}" tap="openUrl" />
+        <StackLayout class="post-info" orientation="horizontal">
+          <Label class="post-score" text="{{ post.score }}" />
+          <Label class="post-author" text="{{ ('via ' + author) }}" />
+          <Label class="post-created" text="{{ post.created }}" />
+        </StackLayout>
         <Repeater class="post-tags-container" items="{{ post.tags }}">
           <Repeater.itemsLayout>
             <StackLayout orientation="horizontal" />
@@ -22,11 +27,6 @@
             <Label class="tag" text="{{ $value }}" />
           </Repeater.itemTemplate>
         </Repeater>
-        <StackLayout class="post-info" orientation="horizontal">
-          <Label class="post-score" text="{{ post.score }}" />
-          <Label class="post-author" text="{{ ('via ' + author) }}" />
-          <Label class="post-created" text="{{ post.created }}" />
-        </StackLayout>
         <Label class="post-description" text="{{ post.sanitizedDescription }}" textWrap="true" />
         <Label class="post-comments" text="{{ (post.commentCount + (post.commentCount === 1 ? ' comment' : ' comments')) }}"/>
       </StackLayout>

@@ -2,14 +2,18 @@
   padding: 10;
 }
 
+.tag {
+  margin-bottom: 7;
+}
+
 .post-description {
   color: #000000;
   font-size: 12;
-  margin-top: 7;
 }
 
 .comment-inner {
   padding: 7 15;
+  background-color: white;
 }
 
 .comment-info {

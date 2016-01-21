@@ -21,6 +21,11 @@
                   <StackLayout class="card">
                     <Label class="post-title" text="{{ title }}" textWrap="true" />
                     <Label class="post-url" text="{{ url }}" tap="openUrl" />
+                    <StackLayout class="post-info" orientation="horizontal">
+                      <Label class="post-score" text="{{ score }}" />
+                      <Label class="post-author" text="{{ ('via ' + author) }}" />
+                      <Label class="post-created" text="{{ created }}" />
+                    </StackLayout>
                     <Repeater class="post-tags-container" items="{{ tags }}">
                       <Repeater.itemsLayout>
                         <StackLayout orientation="horizontal" />
@@ -29,11 +34,6 @@
                         <Label class="tag" text="{{ $value }}" />
                       </Repeater.itemTemplate>
                     </Repeater>
-                    <StackLayout class="post-info" orientation="horizontal">
-                      <Label class="post-score" text="{{ score }}" />
-                      <Label class="post-author" text="{{ ('via ' + author) }}" />
-                      <Label class="post-created" text="{{ created }}" />
-                    </StackLayout>
                     <Label class="post-comments" text="{{ (commentCount + (commentCount === 1 ? ' comment' : ' comments')) }}"/>
                   </StackLayout>
                 </StackLayout>
@@ -51,6 +51,11 @@
                   <StackLayout class="card">
                     <Label class="post-title" text="{{ title }}" textWrap="true" />
                     <Label class="post-url" text="{{ url }}" tap="openUrl" />
+                    <StackLayout class="post-info" orientation="horizontal">
+                      <Label class="post-score" text="{{ score }}" />
+                      <Label class="post-author" text="{{ ('via ' + author) }}" />
+                      <Label class="post-created" text="{{ created }}" />
+                    </StackLayout>
                     <Repeater class="post-tags-container" items="{{ tags }}">
                       <Repeater.itemsLayout>
                         <StackLayout orientation="horizontal" />
@@ -59,11 +64,6 @@
                         <Label class="tag" text="{{ $value }}" />
                       </Repeater.itemTemplate>
                     </Repeater>
-                    <StackLayout class="post-info" orientation="horizontal">
-                      <Label class="post-score" text="{{ score }}" />
-                      <Label class="post-author" text="{{ ('via ' + author) }}" />
-                      <Label class="post-created" text="{{ created }}" />
-                    </StackLayout>
                     <Label class="post-comments" text="{{ (commentCount + (commentCount === 1 ? ' comment' : ' comments')) }}"/>
                   </StackLayout>
                 </StackLayout>
