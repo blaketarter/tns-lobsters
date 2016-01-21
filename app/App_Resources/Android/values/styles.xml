@@ -10,6 +10,8 @@
     
     <style name="AppTheme" parent="AppThemeBase">
       <item name="android:colorPrimary">@color/primary</item>
+      <item name="actionMenuTextColor">@color/white</item>
+      <item name="android:actionMenuTextColor">@color/white</item>
     </style>
 
     <style name="NativeScriptToolbarStyleBase" parent="Widget.AppCompat.Toolbar">
