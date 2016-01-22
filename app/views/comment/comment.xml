@@ -16,7 +16,7 @@
         <Label class="post-url" text="{{ post.url }}" tap="openUrl" />
         <StackLayout class="post-info" orientation="horizontal">
           <Label class="post-score" text="{{ post.score }}" />
-          <Label class="post-author" text="{{ ('via ' + author) }}" />
+          <Label class="post-author" text="{{ ('via ' + post.author) }}" />
           <Label class="post-created" text="{{ post.created }}" />
         </StackLayout>
         <Repeater class="post-tags-container" items="{{ post.tags }}">
