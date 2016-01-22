@@ -28,7 +28,11 @@
           </Repeater.itemTemplate>
         </Repeater>
         <Label class="post-description" text="{{ post.sanitizedDescription }}" textWrap="true" />
-        <Label class="post-comments" text="{{ (post.commentCount + (post.commentCount === 1 ? ' comment' : ' comments')) }}"/>
+        <GridLayout columns="auto, *, 14" rows="auto">
+          <Label row="1" col="1" class="post-comments" text="{{ (post.commentCount + (post.commentCount === 1 ? ' comment' : ' comments')) }}" />
+          <StackLayout row="1" col="2"></StackLayout>
+          <Label row="1" col="3" class="{{ url + ' material-icon share' }}" text="&#xf35b;" tap="share" />
+        </GridLayout>
       </StackLayout>
       <ActivityIndicator busy="{{ isLoading }}" height="{{ (isLoading) ? 45 : 0 }}" />
     </StackLayout>

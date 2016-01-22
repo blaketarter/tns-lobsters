@@ -7,6 +7,14 @@ ActionBar {
   color: white;
 }
 
+.material-icon {
+  font-family: 'Material-Design-Iconic-Font';
+}
+
+.share {
+  margin-top: 7;
+}
+
 .post-inner {
   padding-top: 10;
   padding-left: 10;

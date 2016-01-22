@@ -11,6 +11,8 @@ var utilityModule = require('utils/utils');
 require('../../shared/utils/utils');
 var view = require('ui/core/view');
 
+var socialShare = require("nativescript-social-share");
+
 var pageData = new observable.Observable({
     comments: new observableArray.ObservableArray([]),
     post: new observable.Observable(),
@@ -56,6 +58,12 @@ exports.reload = function() {
         pageData.isLoading = false;
       });
   }
+};
+
+exports.share = function(args) {
+  let url = args.object.classList[0];
+
+  socialShare.shareText(url, 'Share');
 };
 
 exports.longPressComment = function(args) {

@@ -34,7 +34,11 @@
                         <Label class="tag" text="{{ $value }}" />
                       </Repeater.itemTemplate>
                     </Repeater>
-                    <Label class="post-comments" text="{{ (commentCount + (commentCount === 1 ? ' comment' : ' comments')) }}"/>
+                    <GridLayout columns="auto, *, 14" rows="auto">
+                      <Label row="1" col="1" class="post-comments" text="{{ (commentCount + (commentCount === 1 ? ' comment' : ' comments')) }}" />
+                      <StackLayout row="1" col="2"></StackLayout>
+                      <Label row="1" col="3" class="{{ url + ' material-icon share' }}" text="&#xf35b;" tap="share" />
+                    </GridLayout>
                   </StackLayout>
                 </StackLayout>
               </ListView.itemTemplate>
@@ -64,7 +68,11 @@
                         <Label class="tag" text="{{ $value }}" />
                       </Repeater.itemTemplate>
                     </Repeater>
-                    <Label class="post-comments" text="{{ (commentCount + (commentCount === 1 ? ' comment' : ' comments')) }}"/>
+                    <GridLayout columns="auto, *, 14" rows="auto">
+                      <Label row="1" col="1" class="post-comments" text="{{ (commentCount + (commentCount === 1 ? ' comment' : ' comments')) }}" />
+                      <StackLayout row="1" col="2"></StackLayout>
+                      <Label row="1" col="3" class="{{ url + ' material-icon share' }}" text="&#xf35b;" tap="share" />
+                    </GridLayout>
                   </StackLayout>
                 </StackLayout>
               </ListView.itemTemplate>

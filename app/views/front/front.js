@@ -9,6 +9,10 @@ var frameModule = require("ui/frame");
 var utilityModule = require("utils/utils");
 var color = require('color');
 
+var socialShare = require("nativescript-social-share");
+
+require('../../shared/utils/utils.js');
+
 var page;
 var loading = false;
 
@@ -73,6 +77,12 @@ exports.loaded = function(args) {
 exports.openUrl = openUrl;
 
 exports.listViewItemTap = listViewItemTap;
+
+exports.share = function(args) {
+  let url = args.object.classList[0];
+
+  socialShare.shareText(url, 'Share');
+};
 
 exports.reload = function() {
   if (!pageData.isLoading) {
