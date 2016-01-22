@@ -45,10 +45,9 @@ ActionBar {
 
 .tag {
   font-size: 10;
-  color: #666666;
-  border-radius: 10;
-  border-color: #666666;
-  border-width: 1;
+  background-color: #b3b3b3;
+  color: white;
+  border-radius: 3;
   padding: 3 7;
   margin-right: 7;
   margin-top: 7;
