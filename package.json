@@ -26,13 +26,13 @@
     }
   },
   "dependencies": {
-    "moment": "^2.10.6",
+    "moment": "^2.12.0",
     "nativescript-social-share": "^1.1.2",
-    "nativescript-vibrate": "^1.1.0",
-    "striptags": "^2.0.4",
-    "tns-core-modules": "1.5"
+    "nativescript-vibrate": "^1.1.1",
+    "striptags": "^2.1.1",
+    "tns-core-modules": "1.7"
   },
   "devDependencies": {
-    "xml2js": "^0.4.15"
+    "xml2js": "^0.4.16"
   }
 }
