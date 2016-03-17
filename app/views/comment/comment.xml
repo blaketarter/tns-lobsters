@@ -4,7 +4,6 @@
       <NavigationButton text="Back" icon="res://ic_arrow_back_white" tap="navTap" android.iconVisibility="auto" />
       <ActionBar.actionItems>
         <ActionItem ios.position="right" icon="res://ic_cached_white" tap="reload"/>
-        <ActionItem ios.position="right" icon="res://ic_more_vert_white"/>
       </ActionBar.actionItems>
     </ActionBar>
   </Page.actionBar>

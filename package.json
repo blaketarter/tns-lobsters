@@ -1,38 +1,38 @@
 {
-  "name": "TNS-Lobsters",
-  "version": "0.0.1",
-  "description": "Lobsters client built using nativescript",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/blaketarter/tns-lobsters"
-  },
-  "keywords": [
-    "NativeScript",
-    "Lobsters"
-  ],
-  "author": "Blake Tarter",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/blaketarter/tns-lobsters/issues"
-  },
-  "homepage": "https://github.com/blaketarter/tns-lobsters",
-  "nativescript": {
-    "id": "com.blaketarter.tnslobsters",
-    "tns-android": {
-      "version": "1.5.1"
-    },
-    "tns-ios": {
-      "version": "1.5.1"
-    }
-  },
-  "dependencies": {
-    "moment": "^2.12.0",
-    "nativescript-social-share": "^1.1.2",
-    "nativescript-vibrate": "^1.1.1",
-    "striptags": "^2.1.1",
-    "tns-core-modules": "1.7"
-  },
-  "devDependencies": {
-    "xml2js": "^0.4.16"
-  }
+	"name": "TNS-Lobsters",
+	"version": "0.0.1",
+	"description": "Lobsters client built using nativescript",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/blaketarter/tns-lobsters"
+	},
+	"keywords": [
+		"NativeScript",
+		"Lobsters"
+	],
+	"author": "Blake Tarter",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/blaketarter/tns-lobsters/issues"
+	},
+	"homepage": "https://github.com/blaketarter/tns-lobsters",
+	"nativescript": {
+		"id": "com.blaketarter.tnslobsters",
+		"tns-ios": {
+			"version": "1.5.1"
+		},
+		"tns-android": {
+			"version": "1.7.0"
+		}
+	},
+	"dependencies": {
+		"moment": "^2.12.0",
+		"nativescript-social-share": "^1.1.2",
+		"nativescript-vibrate": "^1.1.1",
+		"striptags": "^2.1.1",
+		"tns-core-modules": "1.7"
+	},
+	"devDependencies": {
+		"xml2js": "^0.4.16"
+	}
 }

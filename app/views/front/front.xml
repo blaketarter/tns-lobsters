@@ -3,9 +3,6 @@
     <ActionBar title="Lobste.rs">
       <ActionBar.actionItems>
         <ActionItem ios.position="right" icon="res://ic_cached_white" tap="reload"/>
-        <!-- <ActionItem ios.position="right" icon="res://ic_more_vert_white"/> -->
-        <ActionItem android.position="popup" text="Settings" />
-        <ActionItem android.position="popup" text="About" />
       </ActionBar.actionItems>
     </ActionBar>
   </Page.actionBar>
