@@ -1,0 +1,10 @@
+TabView {
+  color: white;
+}
+
+.tag-list {
+  padding: 10;
+  background-color: white;
+  font-size: 18;
+  color: #666666;
+}

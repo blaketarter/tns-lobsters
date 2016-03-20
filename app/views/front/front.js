@@ -18,17 +18,25 @@ var loading = false;
 
 var Hottest = require('../../shared/models/hottest');
 var Newest = require('../../shared/models/newest');
+var Tags = require('../../shared/models/tags');
+var Search = require('../../shared/models/search');
 
 var hottest = new Hottest();
 var newest = new Newest();
+var tags = new Tags();
+var search = new Search();
 
 var pageData = new observable.Observable({
-    hottest: hottest.posts,
-    newest: newest.posts,
-    currentTab: 'hottest',
-    isLoading: true,
-    hottestClass: hottest,
-    newestClass: newest
+  hottest: hottest.posts,
+  newest: newest.posts,
+  tags: tags.list,
+  search: search.text,
+  currentTab: 'hottest',
+  isLoading: true,
+  hottestClass: hottest,
+  newestClass: newest,
+  tagsClass: tags,
+  searchClass: search
 });
 
 exports.selectedIndexChanged = function(args) {
@@ -39,47 +47,55 @@ exports.selectedIndexChanged = function(args) {
     case 1:
       pageData.currentTab = 'newest';
       break;
+    case 2:
+      pageData.currentTab = 'tags';
+      break;
+    case 3:
+      pageData.currentTab = 'search';
+      break
   }
 };
 
 exports.loaded = function(args) {
-    page = args.object;
-    page.bindingContext = pageData;
-    pageData.isLoading = true;
+  page = args.object;
+  page.bindingContext = pageData;
+  pageData.isLoading = true;
 
-    hottest.reload()
-      .then(function() {
-        pageData.isLoading = false;
-      });
+  hottest.reload()
+    .then(function() {
+      pageData.isLoading = false;
+    });
 
-    newest.reload()
-      .then(function() {
-      });
+  newest.reload();
 
-      if (page.android) {
-        let window = app.android.currentContext.getWindow();
+  tags.reload();
+    
+  if (page.android) {
+    var window = app.android.currentContext.getWindow();
 
-        if (window && window.setStatusBarColor) {
-          window.setStatusBarColor(
-            new color.Color('#890f0a').android
-          );
-        }
-      }
+    if (window && window.setStatusBarColor) {
+      window.setStatusBarColor(
+        new color.Color('#890f0a').android
+      );
+    }
+  }
 
-      if (page.ios) {
-        let controller = frameModule.topmost().ios.controller;
-        let navigationBar = controller.navigationBar;
+  if (page.ios) {
+    var controller = frameModule.topmost().ios.controller;
+    var navigationBar = controller.navigationBar;
 
-        navigationBar.barStyle = 1;
-      }
+    navigationBar.barStyle = 1;
+  }
 };
 
 exports.openUrl = openUrl;
 
 exports.listViewItemTap = listViewItemTap;
 
+exports.tagTap = tagTap;
+
 exports.share = function(args) {
-  let url = args.object.classList[0];
+  var url = args.object.classList[0];
 
   socialShare.shareText(url, 'Share');
 };
@@ -95,13 +111,13 @@ exports.reload = function() {
 };
 
 function showModal(post) {
-    page.showModal('./views/comment/comment', post, function() {
-      console.log('hide modal');
-    }, false);
+  page.showModal('./views/comment/comment', post, function() {
+    console.log('hide modal');
+  }, false);
 }
 
 exports.onCloseModal = function(args) {
-    page.closeModal();
+  page.closeModal();
 };
 
 function openUrl(event) {
@@ -120,8 +136,25 @@ function listViewItemTap(args) {
     context: {
       post: pageData[pageData.currentTab].getItem(index)
     },
-    animated: true
   };
 
   topmost.navigate(navigationEntry);
+}
+
+function tagTap(args) {
+  var index = args.index;
+  
+  var topmost = frameModule.topmost();
+  
+  // showModal(pageData[pageData.currentTab].getItem(index));
+
+  var navigationEntry = {
+    moduleName: './views/tag/tag',
+    context: {
+      tag: pageData[pageData.currentTab].getItem(index)
+    },
+  };
+
+  topmost.navigate(navigationEntry);
+
 }

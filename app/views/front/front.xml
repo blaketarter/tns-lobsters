@@ -6,7 +6,7 @@
       </ActionBar.actionItems>
     </ActionBar>
   </Page.actionBar>
-  <TabView selectedIndexChanged="selectedIndexChanged">
+  <TabView selectedIndexChanged="selectedIndexChanged" tabsBackgroundColor="#AC130D" selectedColor="#FFFFFF">
     <TabView.items>
       <TabViewItem title="Hottest">
         <TabViewItem.view>
@@ -77,6 +77,31 @@
           </StackLayout>
         </TabViewItem.view>
       </TabViewItem>
+      <TabViewItem title="Tags">
+        <TabViewItem.view>
+          <ListView items="{{ tags }}" itemTap="tagTap">
+            <ListView.itemTemplate>
+              <StackLayout class="post-inner">
+                <StackLayout class="card">
+                  <Label class="post-title" text="{{ tag }}" textWrap="true" />
+                  <Label class="post-url" text="{{ description }}" textWrap="true" />
+                </StackLayout>
+              </StackLayout>
+             </ListView.itemTemplate>
+          </ListView>
+        </TabViewItem.view>
+      </TabViewItem>
+
+      <!--
+        <TabViewItem title="Search">
+          <TabViewItem.view>
+            <StackLayout orientation="vertical">
+              <TextField text="{{ Type Tag Here }}" />
+              <Button tap="buttonTap" text="Search" />
+           </StackLayout>
+          </TabViewItem.view>
+        </TabViewItem>
+      -->
     </TabView.items>
   </TabView>
 </Page>

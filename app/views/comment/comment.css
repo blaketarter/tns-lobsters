@@ -35,39 +35,39 @@
   margin-top: 7;
 }
 
-.comment-indent-2 {
+.comment-indent-3 {
   margin-left: 14;
 }
 
-.comment-indent-3 {
+.comment-indent-4 {
   margin-left: 21;
 }
 
-.comment-indent-4 {
+.comment-indent-5 {
   margin-left: 28;
 }
 
-.comment-indent-5 {
+.comment-indent-6 {
   margin-left: 35;
 }
 
-.comment-indent-6 {
+.comment-indent-7 {
   margin-left: 42;
 }
 
-.comment-indent-7 {
+.comment-indent-8 {
   margin-left: 49;
 }
 
-.comment-indent-8 {
+.comment-indent-9 {
   margin-left: 56;
 }
 
-.comment-indent-9 {
+.comment-indent-10 {
   margin-left: 63;
 }
 
-.comment-indent-10 {
+.comment-indent-11 {
   margin-left: 70;
 }
 
@@ -79,6 +79,7 @@
 
 .indent-1 {
   /* background-color: red; */
+  margin-right: 0;
 }
 
 .indent-2 {

@@ -1,0 +1,41 @@
+<Page navigatedTo="pageNavigatedTo" xmlns="http://www.nativescript.org/tns.xsd">
+  <Page.actionBar>
+    <ActionBar title="{{ tagName }}">
+      <NavigationButton text="Back" icon="res://ic_arrow_back_white" tap="navTap" android.iconVisibility="auto" />
+      <ActionBar.actionItems>
+        <ActionItem ios.position="right" icon="res://ic_cached_white" tap="reload"/>
+      </ActionBar.actionItems>
+    </ActionBar>
+  </Page.actionBar>
+    <StackLayout id="stack-container">
+      <ActivityIndicator busy="{{ isLoading }}" height="{{ (isLoading) ? 45 : 0 }}" />
+      <ListView id="post-list" items="{{ posts }}" itemTap="listViewItemTap" separatorColor="#efefef">
+        <ListView.itemTemplate>
+          <StackLayout class="post-inner">
+            <StackLayout class="card">
+              <Label class="post-title" text="{{ title }}" textWrap="true" />
+              <Label class="post-url" text="{{ url }}" tap="openUrl" />
+              <StackLayout class="post-info" orientation="horizontal">
+                <Label class="post-score" text="{{ score }}" />
+                <Label class="post-author" text="{{ ('via ' + author) }}" />
+                <Label class="post-created" text="{{ created }}" />
+              </StackLayout>
+              <Repeater class="post-tags-container" items="{{ tags }}">
+                <Repeater.itemsLayout>
+                  <StackLayout orientation="horizontal" />
+                </Repeater.itemsLayout>
+                <Repeater.itemTemplate>
+                  <Label class="tag" text="{{ $value }}" />
+                </Repeater.itemTemplate>
+              </Repeater>
+              <GridLayout columns="auto, *, 14" rows="auto">
+                <Label row="1" col="1" class="post-comments" text="{{ (commentCount + (commentCount === 1 ? ' comment' : ' comments')) }}" />
+                <StackLayout row="1" col="2"></StackLayout>
+                <Label row="1" col="3" class="{{ url + ' material-icon share' }}" text="&#xf35b;" tap="share" />
+              </GridLayout>
+            </StackLayout>
+          </StackLayout>
+        </ListView.itemTemplate>
+      </ListView>
+    </StackLayout>
+</Page>
