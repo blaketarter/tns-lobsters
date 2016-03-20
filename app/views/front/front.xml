@@ -79,7 +79,7 @@
       </TabViewItem>
       <TabViewItem title="Tags">
         <TabViewItem.view>
-          <ListView items="{{ tags }}" itemTap="tagTap">
+          <ListView items="{{ tags }}" itemTap="tagTap" separatorColor="#efefef">
             <ListView.itemTemplate>
               <StackLayout class="post-inner">
                 <StackLayout class="card">
